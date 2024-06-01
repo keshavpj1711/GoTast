@@ -6,3 +6,7 @@ Writing a test is just like writing a function, with a few rules
 - The test function must **start with the word Test**
 - The test function **takes one argument only t *testing.T**
 - To use the *testing.T type, you need to **import "testing"**, like we did with fmt in the other file
+
+
+> For the sake of understanding we wrote the test after we wrote our program but from now on we will write tests first and then write our code
+
