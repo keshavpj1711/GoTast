@@ -23,3 +23,14 @@ Writing a test is just like writing a function, with a few rules
 > On the face of it this may seem tedious but sticking to the feedback loop is important.
 
 > By not writing tests, you are committing to manually checking your code by running your software, which breaks your state of flow. You won't be saving yourself any time, especially in the long run.
+
+# Things to Note
+
+**Note:** Go source files can only have one package per directory. Make sure that your files are organised into their own packages.
+
+
+
+# Resources 
+
+To follow this you can go to: [Link](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/hello-world)
+
