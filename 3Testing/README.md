@@ -1,4 +1,6 @@
-# Writing Tests
+# Tests in GO
+
+## Writing Tests
 
 Writing a test is just like writing a function, with a few rules
 
@@ -10,3 +12,14 @@ Writing a test is just like writing a function, with a few rules
 
 > For the sake of understanding we wrote the test after we wrote our program but from now on we will write tests first and then write our code
 
+## A Cycle to be followed for good
+
+- Write a test
+- Make the compiler pass
+- Run the test see if it fails and check the error message is meaningful
+- Write enough code to make test pass
+- Refractor(So that things are meaningful in your code)
+
+> On the face of it this may seem tedious but sticking to the feedback loop is important.
+
+> By not writing tests, you are committing to manually checking your code by running your software, which breaks your state of flow. You won't be saving yourself any time, especially in the long run.
