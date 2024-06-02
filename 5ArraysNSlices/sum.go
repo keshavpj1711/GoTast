@@ -1,6 +1,6 @@
 package main
 
-func Sum(num_array [5]int) (sum int) {
+func Sum(num_array []int) (sum int) {
 
 	// Required for normal for loop
 	// count := len(num_array)
