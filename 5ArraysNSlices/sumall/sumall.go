@@ -1,15 +1,13 @@
 package main
 
-func SumAll(arr1, arr2 []int) []int {
+func SumAll(numArr ...[]int) []int {
 
-	sum := []int{0, 0}
+	lengthOfNumArr := len(numArr)
+	sumArr := make([]int, lengthOfNumArr)
 
-	for _, v := range arr1 {
-		sum[0] += v
-	}
-	for _, v := range arr2 {
-		sum[1] += v
+	for i, number := range numArr {
+		sumArr[i] += Sum(number)	
 	}
 	
-	return sum
+	return sumArr
 }
