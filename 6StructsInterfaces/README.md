@@ -22,3 +22,9 @@ Let us see a small set of differences between `Methods and Functions`
 | Implicit Parameter| Object instance (usually named `receiver`) | No implicit parameter|
 | Access Control| Public (uppercase) or private (lowercase)| Public (uppercase) or private (lowercase)
 | Purpose| Operate on data of the object| Perform general-purpose tasks|
+
+Syntax for Methods: 
+```go
+func (receiverName ReceiverType) MethodName(args) returnType {
+}
+```

@@ -4,7 +4,8 @@ import "testing"
 
 func TestPeriRect(t *testing.T)  {
 	t.Run("To calculate peri of rectangle", func(t *testing.T) {
-		got := PeriRect(Rectangle{19, 2})
+		rectangle := Rectangle{19, 2}
+		got := rectangle.PeriRect()
 		want := 42.0
 
 		if got != want {
@@ -13,7 +14,8 @@ func TestPeriRect(t *testing.T)  {
 	})
 
 	t.Run("To calculate area of circle", func(t *testing.T) {
-		got := AreaCircle(Circle{10})
+		circle := Circle{10}
+		got := circle.AreaCircle()
 		want := 314.0
 
 		if got != want {

@@ -13,10 +13,10 @@ type Circle struct{
 	Radius float64
 }
 
-func PeriRect(rect Rectangle) float64 {
+func (rect Rectangle) PeriRect() float64 {
 	return 2*(rect.Length + rect.Breadth)
 }
 
-func AreaCircle(circle Circle) float64 {
+func (circle Circle) AreaCircle() float64 {
 	return Pi*(math.Pow(circle.Radius, 2))
 }
