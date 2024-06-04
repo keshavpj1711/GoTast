@@ -40,3 +40,10 @@ Interfaces are a very powerful concept in statically typed languages like Go bec
     - Reusing code becomes a problem 
     - Testing becomes complex
 - **Highly decoupled code**: basically when different part of your code are not heavily linked.
+
+# Table driven tests
+
+Table driven tests can be a great item in your toolbox, but be sure that you have a need for the extra noise in the tests. 
+They are a great fit when you wish to test various implementations of an interface, or if the data being passed in to a function has lots of different requirements that need testing.
+
+To see how easily that is actually try addding a triangle.

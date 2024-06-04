@@ -44,4 +44,8 @@ func TestPeriRect(t *testing.T) {
 			t.Errorf("Got %v want %v", got, tt.want)
 		}
 	}
+	// This form of testing is known as 
+	// Table driven testing as you can see you as a developer can easily 
+	// add further tests for a different shape
+	// So this will be just as simple as adding a row to your struct var created
 }
