@@ -2,24 +2,27 @@ package main
 
 import "testing"
 
-func TestPeriRect(t *testing.T)  {
-	t.Run("To calculate peri of rectangle", func(t *testing.T) {
-		rectangle := Rectangle{19, 2}
-		got := rectangle.PeriRect()
-		want := 42.0
+func TestPeriRect(t *testing.T) {
+	// I know the concept of helper function has been there for a while
+	// But i will be using it this time
 
+	// This is another form of defining a function
+	checkArea := func(t testing.TB, shape Shape, want float64) {
+		t.Helper()
+		got := shape.Area()
 		if got != want {
-			t.Errorf("Got %v want %v", got, want)
+			t.Errorf("got %g want %g", got, want)
 		}
+	}
+
+	t.Run("rectangles", func(t *testing.T) {
+		rectangle := Rectangle{12, 6}
+		checkArea(t, rectangle, 72.0)
 	})
 
-	t.Run("To calculate area of circle", func(t *testing.T) {
+	t.Run("circles", func(t *testing.T) {
 		circle := Circle{10}
-		got := circle.AreaCircle()
-		want := 314.0
-
-		if got != want {
-			t.Errorf("Got %v want %v", got, want)
-		}
+		checkArea(t, circle, 314)
 	})
+
 }

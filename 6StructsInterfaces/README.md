@@ -14,7 +14,7 @@ type Rectangle struct{
 
 For so long we have been using functions in GO, but without knowing we also have been using methods like `t.Errorf()`.
 
-Let us see a small set of differences between `Methods and Functions`
+Let us see a small set of differences between **Methods and Functions**
 | Feature| Method| Function|
 |----|----|----|
 | Definition| Associated with a struct or interface| Independent entity|
@@ -28,3 +28,7 @@ Syntax for Methods:
 func (receiverName ReceiverType) MethodName(args) returnType {
 }
 ```
+
+# Interfaces
+
+Interfaces are a very powerful concept in statically typed languages like Go because they allow you to make functions that can be used with different types and create highly-decoupled code whilst still maintaining type-safety
