@@ -32,3 +32,11 @@ func (receiverName ReceiverType) MethodName(args) returnType {
 # Interfaces
 
 Interfaces are a very powerful concept in statically typed languages like Go because they allow you to make functions that can be used with different types and create highly-decoupled code whilst still maintaining type-safety
+
+### Concept of coupling in programming 
+
+- **Highly coupled code**: high coupling in Go occurs when different parts of your code are tightly linked and rely heavily on each other's internal workings. This results in: 
+    - Less maintainable code
+    - Reusing code becomes a problem 
+    - Testing becomes complex
+- **Highly decoupled code**: basically when different part of your code are not heavily linked.
