@@ -36,3 +36,12 @@ type Wallet struct{
 ```
 
 This will be used everywhere else in the code not just here, so if you are **talking about balance it has to be of datatype Bitcoin** in your code.
+
+So if you are passing balance somewhere else in the code you have to pass it by this, 
+
+```go
+wallet.Deposit(Bitcoin(10))
+```
+
+> To understand more about it it's better to look at how it's used in the code
+
