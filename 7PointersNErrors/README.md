@@ -17,4 +17,22 @@ and seemingly addressed the object directly.
 In fact, the code above using `(*w)` is absolutely valid. 
 However, the makers of Go deemed this notation cumbersome, so the language permits us to write `w.balance`, **without an explicit dereference.** 
 
->These pointers to structs even have their own name: struct pointers and they are automatically dereferenced.
+### Struct pointers are a thing here...
+
+>These pointers to structs even have their own name: **struct pointers** and they are automatically dereferenced.
+
+# Creating new datatypes from existing ones
+
+Go lets you create new types from existing ones.
+
+The syntax is `type MyName OriginalType`, For example:
+
+```go
+type Bitcoin int
+
+type Wallet struct{
+    balance Bitcoin
+}
+```
+
+This will be used everywhere else in the code not just here, so if you are **talking about balance it has to be of datatype Bitcoin** in your code.
