@@ -4,16 +4,29 @@ import "testing"
 
 func TestWallet(t *testing.T) {
 
-	wallet := Wallet{}
+	check := func (t testing.TB, wallet Wallet, want Bitcoin)  {
+		t.Helper()
 
-	wallet.Deposit(Bitcoin(20))
+		got := wallet.Balance()
 
-	got := wallet.Balance()
-	want := Bitcoin(10)
-
-	if got != want {
-		// Now here we use format specifiers as %s bcoz we implemented
-		// STRINGER Interface with String() method
-		t.Errorf("got %s want %s", got, want)
+		if got != want {
+			t.Errorf("got %s want %s", got, want)
+		}
 	}
+
+	t.Run("deposit", func(t *testing.T) {
+		wallet := Wallet{}
+
+		wallet.Deposit(Bitcoin(10))
+
+		check(t, wallet, Bitcoin(10))
+	})
+
+	t.Run("withdraw", func(t *testing.T) {
+		wallet := Wallet{}
+		
+		wallet.Withdraw(Bitcoin(10))
+
+		check(t, wallet, Bitcoin(10))
+	})
 }
