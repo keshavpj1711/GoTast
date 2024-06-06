@@ -14,6 +14,18 @@ func TestWallet(t *testing.T) {
 		}
 	}
 
+	checkError := func (t testing.TB, got error, want string)  {
+		t.Helper()
+
+		if got == nil {
+			t.Fatal("Didn't get an error but wanted one")
+		}
+
+		if got.Error() != want {
+			t.Errorf("got %v want %v", got, want)
+		}
+	}
+
 	t.Run("deposit", func(t *testing.T) {
 		wallet := Wallet{}
 
@@ -26,12 +38,12 @@ func TestWallet(t *testing.T) {
 		startingBalance := Bitcoin(20)
 		wallet := Wallet{startingBalance}
 
+		// Previously Withdraw method was just modifying the balance of wallet
+		// And was not returning anything so we were trying to assign err to no value
+		// This was solved by adding a return value to it
 		err := wallet.Withdraw(Bitcoin(100))
 
+		checkError(t, err, "can't withdraw insufficient funds")
 		check(t, wallet, startingBalance)
-
-		if err == nil {
-			t.Error("wanted an Error but didn't get one")
-		}
 	})
 }
