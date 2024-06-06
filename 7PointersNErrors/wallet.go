@@ -11,6 +11,11 @@ type Wallet struct{
 	balance Bitcoin
 }
 
+// The var keyword helps us creating a global variable 
+// Next thing is this errors.New() helps us to create a new error 
+// With msg of our choosing
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
 // Implementing a Stringer which is an interface which stores info on  
 // how to display the datatype when it's printed
 type Stringer interface{
@@ -29,8 +34,7 @@ func (w *Wallet) Deposit(amt Bitcoin) {
 func (w *Wallet) Withdraw(amt Bitcoin) error {
 
 	if amt > w.balance {
-		// This is basically creating a new error
-		return errors.New("can't withdraw insufficient funds")
+		return ErrInsufficientFunds
 	}
 
 	w.balance -= amt

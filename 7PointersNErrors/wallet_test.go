@@ -18,9 +18,13 @@ func TestWallet(t *testing.T) {
 		t.Helper()
 
 		if got == nil {
+			// This .Fatal will stop the test if it's called
+			// This is because we don't want to make any more assertions on the error returned if there isn't one around. 
+			// Without this the test would carry on to the next step and panic because of a nil pointer.
 			t.Fatal("Didn't get an error but wanted one")
 		}
 
+		// This .Error() helps us to convert errors into a string
 		if got.Error() != want {
 			t.Errorf("got %v want %v", got, want)
 		}
@@ -43,7 +47,11 @@ func TestWallet(t *testing.T) {
 		// This was solved by adding a return value to it
 		err := wallet.Withdraw(Bitcoin(100))
 
-		checkError(t, err, "can't withdraw insufficient funds")
+		// What values are we passing 
+		// we are passing err so that we can send the return msg that we got
+		// we are passing the string so check whether this is the string we want or not
+		// This .Error() basically helps us pass this error msg as a string
+		checkError(t, err, ErrInsufficientFunds.Error())
 		check(t, wallet, startingBalance)
 	})
 }
