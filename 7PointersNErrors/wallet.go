@@ -19,12 +19,12 @@ func (b Bitcoin) String() string {
 }
 
 // This time we are passing a pointer rather than passing a copy of var
-func (w *Wallet) Deposit(a Bitcoin) {
-	w.balance += a	
+func (w *Wallet) Deposit(amt Bitcoin) {
+	w.balance += amt
 }
 
-func (w *Wallet) Withdraw(a Bitcoin) {
-	w.balance -= a
+func (w *Wallet) Withdraw(amt Bitcoin) {
+	w.balance -= amt
 }
 
 func (w *Wallet) Balance() Bitcoin {
