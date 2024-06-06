@@ -6,12 +6,14 @@ func TestWallet(t *testing.T) {
 
 	wallet := Wallet{}
 
-	wallet.Deposit(10)
+	wallet.Deposit(Bitcoin(20))
 
 	got := wallet.Balance()
-	want := 10.0
+	want := Bitcoin(10)
 
 	if got != want {
-		t.Errorf("got %.f want %f", got, want)
+		// Now here we use format specifiers as %s bcoz we implemented
+		// STRINGER Interface with String() method
+		t.Errorf("got %s want %s", got, want)
 	}
 }
