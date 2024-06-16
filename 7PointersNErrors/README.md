@@ -74,3 +74,23 @@ func (b Bitcoin) String() string {
 - **Name Tag (String method):** In the `String()` method, you can define how you want the user information to be displayed. For instance, it could show "`Username: [username] - Email: [email]`".
 
 This way, when you print a User object, you'll see the user's name and email instead of just technical details.
+
+# Error Handling
+
+## Creating errors
+
+Now if we already know that if something is going to get wrong then we can somehow get the error that we want by creating one and returning it.
+
+Example: 
+This is basically defining a global variable, which contains a specific error
+```go
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+```
+Also note that this variable has datatype `error`
+
+> `nil` is similar to `None` in other programming languages
+
+## Converting error to string
+
+Sometime we might want to convert error msg to string datatype so that we compare it to the error msg that we want.
+This is done by: `ErrInsufficientFunds.Error()`
