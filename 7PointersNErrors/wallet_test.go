@@ -12,7 +12,17 @@ func TestWallet(t *testing.T) {
 		check(t, wallet, Bitcoin(10))
 	})
 
-	t.Run("withdraw", func(t *testing.T) {
+	t.Run("withdraw with funds", func(t *testing.T) {
+		startingBalance := Bitcoin(20)
+		wallet := Wallet{startingBalance}
+
+		err := wallet.Withdraw(Bitcoin(10))
+
+		checkNoError(t, err)
+		check(t, wallet, Bitcoin(10))
+	})
+
+	t.Run("withdraw with insufficient funds", func(t *testing.T) {
 		startingBalance := Bitcoin(20)
 		wallet := Wallet{startingBalance}
 
@@ -40,6 +50,14 @@ func check (t testing.TB, wallet Wallet, want Bitcoin)  {
 	}
 }
 
+func checkNoError(t testing.TB, got error)  {
+	t.Helper()
+
+	if got != nil {
+		t.Fatal("got an error but didn't want one")
+	}
+}
+
 func checkError(t testing.TB, got error, want string)  {
 	t.Helper()
 
@@ -47,7 +65,7 @@ func checkError(t testing.TB, got error, want string)  {
 		// This .Fatal will stop the test if it's called
 		// This is because we don't want to make any more assertions on the error returned if there isn't one around. 
 		// Without this the test would carry on to the next step and panic because of a nil pointer.
-		t.Fatal("Didn't get an error but wanted one")
+		t.Fatal("didn't get an error but wanted one")
 	}
 
 	// This .Error() helps us to convert errors into a string
