@@ -25,3 +25,8 @@ func (d Dictionary) Search(key string) (string, error) {
 
 	return "", ErrKeyAbsent
 }
+
+func (d Dictionary) Add(key, value string)  {
+	// Adding to a map is similar to adding to an array
+	d[key] = value
+}

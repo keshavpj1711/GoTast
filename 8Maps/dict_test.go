@@ -37,3 +37,19 @@ func checkStrings(t testing.TB, got string, want string)  {
 		t.Errorf("got %q want %q", got, want)
 	}
 }	
+
+func TestAdd(t *testing.T)  {
+	// Defining an empty map
+	dictionary := Dictionary{}
+	// Adding a value to map
+	dictionary.Add("test", "this is a add test")
+
+	want := "this is a add test"
+	got, err := dictionary.Search("test")
+
+	if err != nil {
+		t.Fatal("should find added word: ", err)
+	}
+
+	checkStrings(t, got, want)
+}
