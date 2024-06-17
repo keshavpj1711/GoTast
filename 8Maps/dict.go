@@ -6,7 +6,7 @@ import "errors"
 type Dictionary map[string]string
 
 // Initializing an error
-var KeyAbsent = errors.New("given key is not present")
+var ErrKeyAbsent = errors.New("given key is not present")
 
 // func Search(dict Dictionary, key string) string {
 // 	return dict[key]
@@ -14,5 +14,14 @@ var KeyAbsent = errors.New("given key is not present")
 
 // Making Search a method to Dictionary
 func (d Dictionary) Search(key string) (string, error) {
-	return d[key], nil
+
+	// This approach is used to check whether a specific key is present in map or not
+	// here ok variable stores a bool val representing if the key is present in the map or not
+	value, ok := d[key]
+
+	if ok {
+		return value, nil
+	}
+
+	return "", ErrKeyAbsent
 }
