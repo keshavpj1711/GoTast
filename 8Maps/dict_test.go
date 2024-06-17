@@ -5,12 +5,17 @@ import "testing"
 func TestSearch(t *testing.T) {
 
 	// Defining a map(dictionary) in GO
-	dictionary := map[string]string{"test": "this is a test"}
+	dictionary := Dictionary{"test": "this is a test"}
 
-	got := Search(dictionary, "test")
+	got,_ := dictionary.Search("test")
 	want := "this is a test"
 
-	if got != want {
-		t.Errorf("got %q want %q given %q", got, want, "test")
-	}
+	checkStrings(t, got, want)
 }
+
+func checkStrings(t testing.TB, got string, want string)  {
+	t.Helper()
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}	
