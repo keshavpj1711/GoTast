@@ -18,15 +18,17 @@ func TestSearch(t *testing.T) {
 		dictionary := Dictionary{"test": "this is 2nd test"}
 
 		_, err := dictionary.Search("test2")
-		want := "given key is not present"
-
-		if err == nil {
-			t.Fatal("expected to get an error")
-		}
-
-		checkStrings(t, err.Error(), want)
-
+		
+		checkError(t, err, ErrKeyAbsent)		
 	})
+}
+
+func checkError(t testing.TB, got, want error)  {
+	t.Helper()
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
 }
 
 func checkStrings(t testing.TB, got string, want string)  {
