@@ -29,4 +29,10 @@ func (d Dictionary) Search(key string) (string, error) {
 func (d Dictionary) Add(key, value string)  {
 	// Adding to a map is similar to adding to an array
 	d[key] = value
+
+	// One thing you might have noticed is that to modify map 
+	// you don't have to pass it as an address
+	
+	// This makes them feel like they are reference type but they are not
+	// A Map value is a pointer to a runtime.hmap structure
 }
