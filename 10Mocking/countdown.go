@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"io"
+	"os"
 )
 
-func countdown(n int)  {
-	second := time.Second
+func Countdown(out io.Writer) {
+	count := 3
 
-	for i := 0; i < n; i++ {
-		fmt.Println(n-i)
-		time.Sleep(second)
+	for i := 0; i < count; i++ {
+		fmt.Fprintln(out, count-i)
 	}
-	fmt.Println("Go!")
+
+	fmt.Fprint(out, "Go!")
 }
 
 func main()  {
-	countdown(3)
+	Countdown(os.Stdout)
 }
