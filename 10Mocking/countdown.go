@@ -6,14 +6,16 @@ import (
 	"os"
 )
 
-func Countdown(out io.Writer) {
-	count := 3
+const finalWord = "Go!"
+const countdownStart = 3
 
-	for i := 0; i < count; i++ {
-		fmt.Fprintln(out, count-i)
+func Countdown(out io.Writer) {
+
+	for i := countdownStart; i > 0; i-- {
+		fmt.Fprintln(out, i)
 	}
 
-	fmt.Fprint(out, "Go!")
+	fmt.Fprint(out, finalWord)
 }
 
 func main()  {
