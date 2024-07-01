@@ -48,3 +48,6 @@ func main() {
 	sleeper := &DefaultSleeper{}
 	Countdown(os.Stdout, sleeper)
 }
+
+// But this way of testing doesn't take into consideration that in which order is sleep function being called
+// So even if we change the order in which sleep is being called then also the test gets passed
